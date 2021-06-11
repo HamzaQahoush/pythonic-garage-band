@@ -65,6 +65,13 @@ class Band (Musician):
         for member in self.members:
             solos.append(member.play_solo())
         return solos
+    def __str__(self):
+        
+        return f"We are {self.name} and we the #1 in the POP"
+
+    def __repr__(self):
+
+        return f"Band instance. Name = {self.name}"    
 
     @classmethod
     def to_list(cls):
