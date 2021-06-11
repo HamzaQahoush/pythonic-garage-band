@@ -1,11 +1,15 @@
-from attr import s
+
 from abc import   abstractclassmethod
 
 class Musician :
-    def __init__(self, name): 
-     self.name=name
-  
+     members = [] #list of instances
+     def __init__(self,name):
+        self.name = name
+        Musician.members.append(self)
 
+
+
+   
 
 
 class Guitarist(Musician):
@@ -54,13 +58,17 @@ class Band (Musician):
     def __init__ (self, name, members):
         self.name=name
         self.members=members
+        Band.instances.append(self)
+
     def play_solos(self):
         solos = []
         for member in self.members:
             solos.append(member.play_solo())
         return solos
 
-   
+    @classmethod
+    def to_list(cls):
+        return  cls.instances
 
    
 
